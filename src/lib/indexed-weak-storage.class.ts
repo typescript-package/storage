@@ -1,6 +1,14 @@
 // Class.
 import { WeakStorage } from "./weak-storage.class";
-
+/**
+ * @description The `IndexedWeakStorage` class is a concrete class that manages `IndexedWeakStorage` instance in a static `Map` where data is associated with a specified name in the `WeakMap` and index provided by the given `key`.
+ * @export
+ * @class IndexedWeakStorage
+ * @template {object} [Obj=object] 
+ * @template {keyof Obj} [Key=keyof Obj] 
+ * @template {string} [Name='default'] 
+ * @extends {WeakStorage<Obj, Name>}
+ */
 export class IndexedWeakStorage<
   Obj extends object = object,
   Key extends keyof Obj = keyof Obj,
