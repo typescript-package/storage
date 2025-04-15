@@ -19,7 +19,8 @@ A lightweight **TypeScript** library for basic storage management.
 
 - [Installation](#installation)
 - [Api](#api)
-  - []()
+  - [`IndexedWeakStorage`](#indexedweakstorage)
+  - [`WeakStorage`](#weakstorage)
 - [Contributing](#contributing)
 - [Support](#support)
 - [Code of Conduct](#code-of-conduct)
@@ -49,6 +50,77 @@ import {
   IndexedWeakStorage,
   WeakStorage,
 } from '@typescript-package/storage';
+```
+
+### `IndexedWeakStorage`
+
+The `IndexedWeakStorage` class is a concrete class that manages `IndexedWeakStorage` instance in a static `Map` where data is associated with a specified name in the `WeakMap` and index provided by the given `key`.
+
+```typescript
+import { IndexedWeakStorage } from '@typescript-package/storage';
+
+
+export interface Profile {
+  id: number,
+  age: number;
+  score: number;
+  firstName: string;
+  lastName: string;
+};
+
+new IndexedWeakStorage(
+  { id: 1, firstName: 'first', lastName: 'last', age: 27, score: 1100 } as Profile,
+  'id',
+  'profiles1'
+);
+
+new IndexedWeakStorage(
+  { id: 1, firstName: 'first1', lastName: 'last1', age: 127, score: 1200 } as Profile,
+  'id',
+  'profiles2'
+);
+
+
+console.log(
+  `IndexedWeakStorage.getByIndex(1, 'profiles2'): `,
+  IndexedWeakStorage.getByIndex(1, 'profiles2') // { id: 1, firstName: 'first1', lastName: 'last1', age: 127, score: 1200 }
+);
+```
+
+### `WeakStorage`
+
+The `WeakStorage` class is a concrete class that manages `WeakStorage` instance in a static `Map` where data is associated with a specified name in the `WeakMap`.
+
+```typescript
+import { WeakStorage } from '@typescript-package/storage';
+
+// Define a class that extends WeakStorage
+export class ProfileData extends WeakStorage<number, 'age' | 'score'> {}
+
+// Create two instances with different names
+const ageData = new ProfileData(25, 'age');
+const scoreData = new ProfileData(90, 'score');
+
+// Access the values stored in each instance using their respective names
+console.log(ageData.value); // Outputs: 25
+console.log(scoreData.value); // Outputs: 90
+
+// You can also retrieve the data from another instance using the static method `getFrom`
+console.log(WeakStorage.get('age', ageData)); // Outputs: 25
+console.log(WeakStorage.get('score', scoreData)); // Outputs: 90
+
+// Setting new values
+ageData.set(30);
+console.log(ageData.value); // Outputs: 30
+
+// Destroy an instance and clear its stored data
+ageData.destroy();
+console.log(WeakStorage.get('age', ageData)); // Outputs: undefined
+
+// Clear all stored values from the map
+scoreData.delete();
+console.log(WeakStorage.get('score', scoreData)); // Outputs: undefined
+
 ```
 
 ## Contributing
