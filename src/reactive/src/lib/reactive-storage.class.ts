@@ -59,7 +59,7 @@ export class ReactiveStorage<
     emitter: new (...args: any[]) => NamedEventEmitter<Record<StorageMethodName, StorageListener<K, V, P>>>,
     ...args: any[]
   ) {
-    return this.#emitter = new emitter(...args  ), this;
+    return (this.#emitter = new emitter({}, ...args)), this;
   }
 
   public override add(key: K, value: V) {
