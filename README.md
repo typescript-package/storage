@@ -6,7 +6,7 @@
   />
 </a>
 
-## typescript-package/storage
+## @typescript-package/storage
 
 <!-- npm badge -->
 [![npm version][typescript-package-npm-badge-svg]][typescript-package-npm-badge]
@@ -19,8 +19,17 @@ A lightweight **TypeScript** library for basic storage management.
 
 - [Installation](#installation)
 - [Api](#api)
-  - [`IndexedWeakStorage`](#indexedweakstorage)
-  - [`WeakStorage`](#weakstorage)
+  - Main
+    - [`StorageCore`](#storagecore)
+    - [`StorageBase`](#storagebase)
+    - [`Storage`](#storage)
+  - Reactive
+    - [`ReactiveStorage`](#reactivestorage)
+  - Specific-type
+    - [`IndexedWeakStorage`](#indexedweakstorage)
+    - [`WeakStorage`](#weakstorage)
+  - Adapter
+    - [`WebStorageAdapter`](#webstorageadapter)
 - [Contributing](#contributing)
 - [Support](#support)
 - [Code of Conduct](#code-of-conduct)
@@ -34,7 +43,7 @@ A lightweight **TypeScript** library for basic storage management.
 ### 1. Install peer dependencies
 
 ```bash
-npm install @typescript-package/data --save-peer
+npm install @typedly/storage @typescript-package/data --save-peer
 ```
 
 ### 2. Install main package
@@ -48,9 +57,48 @@ npm install @typescript-package/storage --save-peer
 ```typescript
 import {
   IndexedWeakStorage,
+  ReactiveStorage,
+  Storage,
   WeakStorage,
+
+  // Adapter.
+  WebStorageAdapter,
+
+  // Abstract.
+  StorageBase,
+  StorageCore,
 } from '@typescript-package/storage';
 ```
+
+### Main
+
+### `StorageCore`
+
+```typescript
+import { IndexedWeakStorage } from '@typescript-package/storage';
+```
+
+### `StorageBase`
+
+```typescript
+import { StorageBase } from '@typescript-package/storage';
+```
+
+### `Storage`
+
+```typescript
+import { Storage } from '@typescript-package/storage';
+```
+
+### Reactive
+
+### `ReactiveStorage`
+
+```typescript
+import { ReactiveStorage } from '@typescript-package/storage';
+```
+
+### Specific-type
 
 ### `IndexedWeakStorage`
 
@@ -123,6 +171,14 @@ console.log(WeakStorage.get('score', scoreData)); // Outputs: undefined
 
 ```
 
+### Adapter
+
+### `WebStorageAdapter`
+
+```typescript
+import { WebStorageAdapter } from '@typescript-package/storage';
+```
+
 ## Contributing
 
 Your contributions are valued! If you'd like to contribute, please feel free to submit a pull request. Help is always appreciated.
@@ -134,7 +190,19 @@ If you find this package useful and would like to support its and general develo
 Support via:
 
 - [Stripe](https://donate.stripe.com/dR614hfDZcJE3wAcMM)
-- [Revolut](https://checkout.revolut.com/pay/048b10a3-0e10-42c8-a917-e3e9cb4c8e29)
+- ~~[Revolut](https://checkout.revolut.com/pay/048b10a3-0e10-42c8-a917-e3e9cb4c8e29)~~
+- [GitHub](https://github.com/sponsors/angular-package/sponsorships?sponsor=sciborrudnicki&tier_id=83618)
+- [DonorBox](https://donorbox.org/become-a-sponsor-to-the-angular-package?default_interval=o)
+- [Patreon](https://www.patreon.com/checkout/angularpackage?rid=0&fan_landing=true&view_as=public)
+- [4Fund](https://4fund.com/bruubs)
+
+or via Trust Wallet
+
+- [XLM](https://link.trustwallet.com/send?coin=148&address=GAFFFB7H3LG42O6JA63FJDRK4PP4JCNEOPHLGLLFH625X2KFYQ4UYVM4)
+- [USDT (BEP20)](https://link.trustwallet.com/send?coin=20000714&address=0xA0c22A2bc7E37C1d5992dFDFFeD5E6f9298E1b94&token_id=0x55d398326f99059fF775485246999027B3197955)
+- [ETH](https://link.trustwallet.com/send?coin=60&address=0xA0c22A2bc7E37C1d5992dFDFFeD5E6f9298E1b94)
+- [BTC](https://link.trustwallet.com/send?coin=0&address=bc1qnf709336tfl57ta5mfkf4t9fndhx7agxvv9svn)
+- [BNB](https://link.trustwallet.com/send?coin=20000714&address=0xA0c22A2bc7E37C1d5992dFDFFeD5E6f9298E1b94)
 
 Thanks for your support!
 
@@ -195,14 +263,10 @@ MIT © typescript-package ([license][typescript-package-license])
 <!-- This package: typescript-package  -->
   <!-- GitHub: badges -->
   [typescript-package-badge-issues]: https://img.shields.io/github/issues/typescript-package/storage
-  [isscript-package-badge-forks]: https://img.shields.io/github/forks/typescript-package/storage
-  [typescript-package-badge-stars]: https://img.shields.io/github/stars/typescript-package/storage
   [typescript-package-badge-license]: https://img.shields.io/github/license/typescript-package/storage
   <!-- GitHub: badges links -->
   [typescript-package-issues]: https://github.com/typescript-package/storage/issues
-  [typescript-package-forks]: https://github.com/typescript-package/storage/network
   [typescript-package-license]: https://github.com/typescript-package/storage/blob/master/LICENSE
-  [typescript-package-stars]: https://github.com/typescript-package/storage/stargazers
 <!-- This package -->
 
 <!-- Package: typescript-package -->
