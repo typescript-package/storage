@@ -1,6 +1,6 @@
 {
   "name": "@typescript-package/storage",
-  "version": "0.0.1",
+  "version": "1.0.0-beta.0",
   "author": "wwwdev.io <dev@wwwdev.io>",
   "description": "A lightweight TypeScript library for basic storage management.",
   "license": "MIT",
@@ -8,8 +8,15 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
+  "optionalDependencies": {
+    "@typescript-package/collection": "^0.2.1",
+    "@typescript-package/collection-adapter": "^0.2.0",
+    "@typescript-package/event-emitter": "^0.1.0",
+    "@typescript-package/listeners": "^0.0.1"
+  },
   "peerDependencies": {
-    "@typescript-package/data": "^2.1.0"
+    "@typedly/storage": "^2.0.0",
+    "@typescript-package/data": "^7.0.0"
   },
   "scripts": {
     "prepublishOnly": "npm run pkg && npm run clean",
@@ -27,6 +34,10 @@
     "@typescript-package",
     "@typescript-package/storage",
     "IndexedWeakStorage",
+    "ReactiveStorage",
+    "Storage",
+    "StorageBase",
+    "StorageCore",
     "WeakStorage"
   ],
   "funding": [

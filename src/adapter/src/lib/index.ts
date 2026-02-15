@@ -1,0 +1,1 @@
+export { WebStorageAdapter } from './web-storage.adapter';
