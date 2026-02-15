@@ -4,7 +4,7 @@ import { StorageAdapter } from "@typedly/storage";
 // Abstract.
 import { StorageCore } from "./storage-core.abstract";
 /**
- * @description The storage base abstraction with implement adapter functionality.
+ * @description The storage base abstraction with implemented adapter functionality.
  * @export
  * @abstract
  * @class StorageBase
