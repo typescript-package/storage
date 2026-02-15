@@ -8,7 +8,7 @@ import { AsyncReturn } from "@typedly/data";
 // @typescript-package
 import { BaseData } from '@typescript-package/data';
 /**
- * @description The core storage abstraction
+ * @description The storage core abstraction with predefined shape.
  * @export
  * @abstract
  * @class StorageCore

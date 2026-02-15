@@ -74,11 +74,15 @@ import {
 
 ### `StorageCore`
 
+The storage core abstraction with predefined shape.
+
 ```typescript
 import { IndexedWeakStorage } from '@typescript-package/storage';
 ```
 
 ### `StorageBase`
+
+The storage base abstraction with implemented adapter functionality.
 
 ```typescript
 import { StorageBase } from '@typescript-package/storage';
@@ -86,16 +90,49 @@ import { StorageBase } from '@typescript-package/storage';
 
 ### `Storage`
 
+The concrete storage class that can be instantiated and used directly.
+
 ```typescript
-import { Storage } from '@typescript-package/storage';
+import { Storage, WebStorageAdapter } from '@typescript-package/storage';
+
+const storage = new Storage(
+  {async: false, value: {a: 1, b: 2}},
+  WebStorageAdapter,
+  localStorage,
+  'test-storage',
+  JSON.stringify,
+  JSON.parse
+);
+
+console.log(`storage.value:`, storage.value); // { a: 1, b: 2 }
 ```
 
 ### Reactive
 
 ### `ReactiveStorage`
 
+The reactive concrete implementation to emit the events of the storage.
+
 ```typescript
-import { ReactiveStorage } from '@typescript-package/storage';
+import { ReactiveStorage, WebStorageAdapter } from '@typescript-package/storage';
+import { NamedEventEmitter } from "@typescript-package/event-emitter";
+
+const storage = new ReactiveStorage(
+  {async: false, value: {a: 1, b: 2}},
+  WebStorageAdapter,
+  localStorage,
+  'test-storage', 
+  JSON.stringify,
+  JSON.parse
+);
+
+storage.setEmitter(NamedEventEmitter);
+
+storage.on('put', ({key, value}) => {
+  console.log(`put event: key=${key}, value=${value}`);
+});
+
+storage.put('b', 3);
 ```
 
 ### Specific-type
